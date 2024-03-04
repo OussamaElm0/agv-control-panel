@@ -14,4 +14,4 @@ class Agv(models.Model):
     status = models.CharField(max_length=50,choices=statusOptions)
 
     def __str__(self):
-        return self.nomAgv
+        return self.nom
