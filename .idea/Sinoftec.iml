@@ -22,7 +22,11 @@
     <option name="myDocStringFormat" value="Plain" />
   </component>
   <component name="SonarLintModuleSettings">
+<<<<<<< HEAD
+    <option name="uniqueId" value="041d96f1-a027-4978-806d-a7fcf55af536" />
+=======
     <option name="uniqueId" value="d562a7df-9866-4591-953d-1e49321502a3" />
+>>>>>>> 43e7c9dd982ae6c9d0c3f2c2c8629df75110c21d
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

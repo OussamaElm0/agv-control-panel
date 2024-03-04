@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'agv.apps.AgvConfig',
+    'blocs.apps.BlocsConfig',
 ]
 
 MIDDLEWARE = [
