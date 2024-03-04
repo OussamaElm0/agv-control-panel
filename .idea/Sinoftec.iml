@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
-  <component name="FacetManager">
-    <facet type="django" name="Django">
-      <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$" />
-        <option name="settingsModule" value="Sinoftec/settings.py" />
-        <option name="manageScript" value="$MODULE_DIR$/manage.py" />
-        <option name="environment" value="&lt;map/&gt;" />
-        <option name="doNotUseTestRunner" value="false" />
-        <option name="trackFilePattern" value="migrations" />
-      </configuration>
-    </facet>
-  </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.12" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
@@ -22,11 +9,7 @@
     <option name="myDocStringFormat" value="Plain" />
   </component>
   <component name="SonarLintModuleSettings">
-<<<<<<< HEAD
-    <option name="uniqueId" value="041d96f1-a027-4978-806d-a7fcf55af536" />
-=======
     <option name="uniqueId" value="d562a7df-9866-4591-953d-1e49321502a3" />
->>>>>>> 43e7c9dd982ae6c9d0c3f2c2c8629df75110c21d
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

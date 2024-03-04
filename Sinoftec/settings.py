@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'agv.apps.AgvConfig',
     'blocs.apps.BlocsConfig',
+    'commands.apps.CommandsConfig',
 ]
 
 MIDDLEWARE = [

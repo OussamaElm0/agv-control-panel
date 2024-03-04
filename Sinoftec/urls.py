@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('agvs/',include('agv.urls')),
     path('blocs/',include('blocs.urls')),
+    path('commands/',include('commands.urls')),
 ]
