@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 class Agv(models.Model):
     statusOptions = (
-        ('Inactive', 'Inactive'),
-        ('Porter une charge', 'Porter une charge'),
-        ('Mise en charge', 'Mise en charge')
+        ('IN', 'Inactive'),
+        ('PC', 'Porter une charge'),
+        ('MC', 'Mise en charge')
     )
 
     nom = models.CharField(max_length=100)
