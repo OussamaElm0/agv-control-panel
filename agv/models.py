@@ -9,8 +9,8 @@ class Agv(models.Model):
     )
 
     nom = models.CharField(max_length=100)
-    capacite = models.IntegerField()
-    vie_batterie = models.IntegerField()
+    capacite = models.PositiveIntegerField()
+    vie_batterie = models.PositiveIntegerField()
     status = models.CharField(max_length=50,choices=statusOptions)
 
     def __str__(self):
