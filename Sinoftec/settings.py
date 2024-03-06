@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'agv.apps.AgvConfig',
     'blocs.apps.BlocsConfig',
     'commandes.apps.CommandesConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
