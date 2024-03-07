@@ -16,6 +16,7 @@ def adminLogin(request):
             if admin.exists():
                 return render(request, 'users/admin/home.html')
             else:
-                return render(request, 'users/admin/login.html', {'form': form})
+                error_message = 'Invalid username or password.'
+                return render(request, 'users/admin/login.html', {'form': form, 'error_message': error_message})
         else:
             return render(request, 'users/admin/login.html', {'form': form})

@@ -9,5 +9,8 @@
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Login">
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
 {% endblock content %}
 
