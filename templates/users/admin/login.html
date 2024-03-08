@@ -18,15 +18,14 @@
         <form action='{% url "adminLogin" %}' method='post'>
             {% csrf_token %}
             {% for field in form %}
-                <div class="form-group mb-3
-                {% if field.errors %}has-error{% endif %}">
+                <div class="form-group mb-3">
                     <label for="{{ field.id_for_label }}" class="input-group-text">{{ field.label }}</label>
                     <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}" >
                 </div>
-                {% for error in field.errors %}
-                    <span class="help-block text-danger">{{ error }}</span>
-                {% endfor %}
             {% endfor %}
+            {% if error_message %}
+                <p class="text-danger">{{ error_message }}</p>
+            {% endif %}
             <button type="submit" class="btn">Login</button>
         </form>
     </main>
