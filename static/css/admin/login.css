@@ -1,0 +1,27 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+.form-group {
+    display: flex;
+    flex-direction: row;
+}
+form {
+    width: 40%;
+}
+form button {
+    width: 100%;
+    background-color: #0889c8 !important;
+    color: white !important;
+}
+header {
+    text-align: center;
+    padding: 20px;
+}
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #f18e2c;
+}
