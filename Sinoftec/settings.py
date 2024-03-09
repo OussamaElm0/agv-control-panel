@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'blocs.apps.BlocsConfig',
     'commandes.apps.CommandesConfig',
     'users.apps.UsersConfig',
-    'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +83,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
