@@ -27,6 +27,8 @@ def checkIfAdmin(request):
                     'form': form,
                     'error_message': 'Form fields not valid'
                 })
+    elif request.user.is_authenticated:
+        return redirect('adminIndex')
     form = AdminLoginForm()
     return render(request,'users/admin/login.html', {
         'form': form
