@@ -4,6 +4,8 @@ from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.http import *
 from django.contrib.auth.decorators import login_required
+from agv.models import *
+from blocs.models import *
 
 # Create your views here.
 
@@ -35,10 +37,12 @@ def checkIfAdmin(request):
     })
 
 # Renders the admin home page if the user is authenticated, otherwise redirects to the login form.
-@login_required
 @require_GET
 def adminIndex(request):
     if request.user.is_authenticated:
-        return render(request, 'users/admin/home.html')
+        context = {}
+        agvs = Agv.objects.all().count()
+        context['agvs'] = agvs
+        return render(request, 'users/admin/home.html', context)
     else:
         return redirect('loginForm')
