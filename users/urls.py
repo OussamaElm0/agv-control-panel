@@ -3,5 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('admin/login', checkIfAdmin, name='loginForm'),
-    # path('admin/checkIfAdmin', checkIfAdmin, name='checkIfAdmin'),
+    path('admin',adminIndex, name='adminIndex',)
 ]
