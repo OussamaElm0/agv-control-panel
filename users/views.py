@@ -9,6 +9,7 @@ from blocs.models import *
 from commandes.views import sendCommand as newCommand
 from commandes.forms import CommandeForm
 from django.http import HttpResponse
+from getmac import get_mac_address as gma
 # Create your views here.
 
 #View function to check if the user is an admin and handle the login process.
@@ -66,14 +67,16 @@ def commande(request):
 def sendCommand(request):
     form = CommandeForm(request.POST)
     isAuthenticated = request.user.is_authenticated
-    ipAddress = request.META.get("REMOTE_ADDR",None)
-    addressExist = Poste.objects.filter(ip_address='125.125.124.124').first()
-    return HttpResponse(addressExist)
-    try :
-        agv = request.POST.get('id_agv')
-        bloc = request.POST.get('id_bloc')
-        newCommand(agv, bloc)
-        return HttpResponse('Tested')
-    except Exception as e:
-        print(e)
-        return HttpResponse(e)
+    macAddress = Poste.objects.filter(mac_address=gma()).first()
+    if macAddress is not None or isAuthenticated :
+        try :
+            agv = request.POST.get('id_agv')
+            bloc = request.POST.get('id_bloc')
+            newCommand(agv, bloc)
+            return HttpResponse('Agv sent')
+        except Exception as e:
+            print(e)
+            return HttpResponse(e)
+    else :
+        return HttpResponse('Not allowed')
+   
