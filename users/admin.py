@@ -5,6 +5,6 @@ from .models import *
 @register(Poste)
 class PosteAdmin(ModelAdmin):
     list_display = (
-        'ip_address',
+        'mac_address',
         'bloc'
     )

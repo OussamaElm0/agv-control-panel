@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Poste(models.Model):
-    ip_address = models.GenericIPAddressField()
+    mac_address = models.CharField(max_length=17, unique=True)
     bloc = models.ForeignKey(Bloc, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.ip_address
+        return self.mac_address

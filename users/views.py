@@ -46,7 +46,7 @@ def adminIndex(request):
         context['agvs'] =  Agv.objects.all().count()
         context['blocs'] = Bloc.objects.all().count()
         context['postes'] = Poste.objects.all().count()
-        return render(request, 'users/admin/home.html', context)
+        return render(request, 'admin/home.html', context)
     else:
         return redirect('loginForm')
     
@@ -65,6 +65,10 @@ def commande(request):
 @require_POST
 def sendCommand(request):
     form = CommandeForm(request.POST)
+    isAuthenticated = request.user.is_authenticated
+    ipAddress = request.META.get("REMOTE_ADDR",None)
+    addressExist = Poste.objects.filter(ip_address='125.125.124.124').first()
+    return HttpResponse(addressExist)
     try :
         agv = request.POST.get('id_agv')
         bloc = request.POST.get('id_bloc')
