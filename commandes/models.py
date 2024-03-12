@@ -7,8 +7,8 @@ import datetime as dt
 class Commande(models.Model):
     id_agv = models.ForeignKey(Agv, on_delete=models.CASCADE)
     id_bloc = models.ForeignKey(Bloc, on_delete=models.CASCADE)
-    date = dt.datetime.now().strftime("%Y-%m-%d")
-    time = dt.datetime.now().strftime("%H:%M:%S")
+    date = models.DateField()
+    time = models.TimeField()
     confirmed = models.BooleanField(default=False)
 
     def __str__(self) -> str:
