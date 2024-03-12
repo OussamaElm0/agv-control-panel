@@ -41,8 +41,14 @@ def checkIfAdmin(request):
 def adminIndex(request):
     if request.user.is_authenticated:
         context = {}
-        agvs = Agv.objects.all().count()
-        context['agvs'] = agvs
+        context['agvs'] =  Agv.objects.all().count()
+        context['blocs'] = Bloc.objects.all().count()
+        context['postes'] = Poste.objects.all().count()
         return render(request, 'users/admin/home.html', context)
     else:
         return redirect('loginForm')
+    
+@login_required
+def adminLogout(request):
+    logout(request)
+    return redirect('loginForm')

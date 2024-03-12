@@ -3,5 +3,6 @@ from .views import *
 
 urlpatterns = [
     path('admin/login', checkIfAdmin, name='loginForm'),
-    path('dashboard',adminIndex, name='adminIndex',)
+    path('dashboard', adminIndex, name='adminIndex'),
+    path('admin/logout', adminLogout, name="adminLogout"),
 ]

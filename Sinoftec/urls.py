@@ -25,4 +25,4 @@ urlpatterns = [
     path('blocs/',include('blocs.urls')),
     path('commandes/',include('commandes.urls')),
     path('',include('users.urls')),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
