@@ -6,7 +6,9 @@ from django.views.decorators.http import *
 from django.contrib.auth.decorators import login_required
 from agv.models import *
 from blocs.models import *
-
+from commandes.views import sendCommand as newCommand
+from commandes.forms import CommandeForm
+from django.http import HttpResponse
 # Create your views here.
 
 #View function to check if the user is an admin and handle the login process.
@@ -48,7 +50,26 @@ def adminIndex(request):
     else:
         return redirect('loginForm')
     
+# Logout the admin from his account
 @login_required
 def adminLogout(request):
     logout(request)
     return redirect('loginForm')
+
+def commande(request):
+    form = CommandeForm()
+    return render(request, 'commands/send.html',{
+        'form': form
+    })
+
+@require_POST
+def sendCommand(request):
+    form = CommandeForm(request.POST)
+    try :
+        agv = request.POST.get('id_agv')
+        bloc = request.POST.get('id_bloc')
+        newCommand(agv, bloc)
+        return HttpResponse('Tested')
+    except Exception as e:
+        print(e)
+        return HttpResponse(e)

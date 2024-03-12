@@ -2,8 +2,6 @@ from django.db import models
 from agv.models import Agv
 from blocs.models import Bloc
 import datetime as dt
-from django.utils import timezone
-
 
 # Create your models here.
 class Commande(models.Model):
