@@ -4,8 +4,9 @@ from agv.models import Agv
 from blocs.models import Bloc
 
 class CommandeForm(forms.ModelForm):
-    id_agv = forms.ModelChoiceField(queryset= Agv.objects.all())
-    id_bloc = forms.ModelChoiceField(queryset= Bloc.objects.all())
+    attriutes = {'class': "form-select"}
+    id_agv = forms.ModelChoiceField(queryset= Agv.objects.all(),widget=forms.Select(attrs=attriutes), label="Agv")
+    id_bloc = forms.ModelChoiceField(queryset= Bloc.objects.all(), widget=forms.Select(attrs=attriutes), label="Bloc")
 
     class Meta: 
         model = Commande

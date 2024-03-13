@@ -1,0 +1,19 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+.form-group {
+    display: flex;
+    flex-direction: row;
+}
+form {
+    width: 40%;
+}
+form button {
+    width: 100%;
+    background-color: #F18E30 !important;
+    color: white !important;
+    border: none !important;
+}
