@@ -35,7 +35,7 @@ def checkIfAdmin(request):
     elif request.user.is_authenticated:
         return redirect('adminIndex')
     form = AdminLoginForm()
-    return render(request,'users/admin/login.html', {
+    return render(request,'admin/login.html', {
         'form': form
     })
 
