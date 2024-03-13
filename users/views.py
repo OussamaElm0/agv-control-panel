@@ -57,9 +57,10 @@ def adminLogout(request):
     logout(request)
     return redirect('loginForm')
 
+@require_GET
 def commande(request):
     form = CommandeForm()
-    return render(request, 'commands/send.html',{
+    return render(request, 'commandes/send.html',{
         'form': form
     })
 
