@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'agv.apps.AgvConfig',
     'blocs.apps.BlocsConfig',
-    'commands.apps.CommandesConfig',
+    'commandes.apps.CommandesConfig',
     'users.apps.UsersConfig',
 ]
 

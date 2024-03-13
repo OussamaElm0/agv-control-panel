@@ -1,7 +1,5 @@
 from django.db import models
-from agv.models import Agv
 from blocs.models import Bloc
-from django.contrib.auth.models import User
 
 # Create your models here.
 class Poste(models.Model):
