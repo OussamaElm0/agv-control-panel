@@ -1,0 +1,25 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Envoyer Agv</title>
+{% endblock head %}
+
+{% block content %}
+    <h1 class="text-center">401 Non autorisé</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Vous n'êtes pas autorisé à accéder à cette page</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center">Vous n'avez pas les droits nécessaires pour accéder à cette page</p>
+                        <img src="{% static 'images/401 Error.png' %}" alt="401" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

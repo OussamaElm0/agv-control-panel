@@ -60,13 +60,17 @@ def adminLogout(request):
 @require_GET
 def commande(request):
     form = CommandeForm()
-    return render(request, 'commandes/send.html',{
-        'form': form
-    })
+    isAuthenticated = request.user.is_authenticated
+    macAddress = Poste.objects.filter(mac_address=gma()).first()
+    if macAddress is not None or isAuthenticated :
+        return render(request, 'commandes/send.html',{
+            'form': form
+        })
+    else : 
+        return render(request,'http_errors/401.html')
 
 @require_POST
 def sendCommand(request):
-    form = CommandeForm(request.POST)
     isAuthenticated = request.user.is_authenticated
     macAddress = Poste.objects.filter(mac_address=gma()).first()
     if macAddress is not None or isAuthenticated :
