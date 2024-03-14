@@ -8,6 +8,7 @@ from agv.models import *
 from blocs.models import *
 from commandes.views import sendCommand as newCommand
 from commandes.forms import CommandeForm
+from commandes.models import Commande
 from django.http import HttpResponse
 from getmac import get_mac_address as gma
 # Create your views here.
@@ -63,9 +64,12 @@ def commande(request):
     isAuthenticated = request.user.is_authenticated
     macAddress = Poste.objects.filter(mac_address=gma()).first()
     if macAddress is not None or isAuthenticated :
-        return render(request, 'commandes/send.html',{
-            'form': form
-        })
+        agvsToBloc = Commande.objects.filter(confirmed=False, id_bloc=macAddress.bloc)
+        context = {
+            'form': form,
+            'agvsToBloc': agvsToBloc
+        }
+        return render(request, 'commandes/send.html',context)
     else : 
         return render(request,'http_errors/401.html')
 

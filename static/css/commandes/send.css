@@ -32,16 +32,19 @@ main .agvs-coming {
   width: 100%;
 }
 main .agvs-coming .agv {
-  width: 40%;
+  width: 80%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
   padding: 20px;
-  background-color: #0889c8;
-  color: white;
   border-radius: 10px;
   margin-bottom: 20px;
+  border: 2px solid #0889c8;
+}
+main .agvs-coming .agv .confirm-reception {
+  color: #F18E30;
+  border: none;
+  padding: 0;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=send.css.map */
