@@ -1,0 +1,55 @@
+@import '../variables';
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  
+    .send {
+        grid-column: span 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        
+        .send-form {
+            .form-group {
+                display: flex;
+                flex-direction: row;
+            }
+
+            button {
+                width: 100%;
+                background-color: $primary-orange !important;
+                color: white !important;
+                border: none !important;
+            }
+        }
+    }
+
+    .agvs-coming {
+        grid-column: span 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+
+        .agv {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: $primary-blue;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    }
+  }
+  

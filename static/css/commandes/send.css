@@ -1,19 +1,47 @@
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
 }
-.form-group {
-    display: flex;
-    flex-direction: row;
+main .send {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
 }
-form {
-    width: 40%;
+main .send .send-form .form-group {
+  display: flex;
+  flex-direction: row;
 }
-form button {
-    width: 100%;
-    background-color: #F18E30 !important;
-    color: white !important;
-    border: none !important;
+main .send .send-form button {
+  width: 100%;
+  background-color: #F18E30 !important;
+  color: white !important;
+  border: none !important;
 }
+main .agvs-coming {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+main .agvs-coming .agv {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #0889c8;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=send.css.map */
