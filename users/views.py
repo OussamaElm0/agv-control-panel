@@ -9,7 +9,7 @@ from blocs.models import *
 from commandes.views import sendCommand as newCommand
 from commandes.forms import CommandeForm
 from commandes.models import Commande
-from django.http import HttpResponse
+from django.http import JsonResponse, HttpResponse
 from getmac import get_mac_address as gma
 # Create your views here.
 
@@ -64,7 +64,7 @@ def commande(request):
     isAuthenticated = request.user.is_authenticated
     macAddress = Poste.objects.filter(mac_address=gma()).first()
     if macAddress is not None or isAuthenticated :
-        agvsToBloc = Commande.objects.filter(confirmed=False, id_bloc=macAddress.bloc)
+        agvsToBloc = Commande.objects.filter(confirmed=False, id_bloc=macAddress.bloc).order_by('-date')
         context = {
             'form': form,
             'agvsToBloc': agvsToBloc
@@ -89,3 +89,14 @@ def sendCommand(request):
     else :
         return HttpResponse('Not allowed')
    
+def confirmCommande(request):
+    if request.method == 'POST':
+        commandeId = request.POST.get('commandeId')
+        # Update the status in the database using the agv_id
+        # Example:
+        commande = Commande.objects.get(id=commandeId)
+        commande.confirmed = True
+        # agv.save()
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
