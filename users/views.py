@@ -96,5 +96,4 @@ def update_commande(request, id):
         commande = Commande.objects.get(pk=id)
         commande.confirmed =True
         commande.save()
-        return redirect('/')
-    return HttpResponse('no')
+    return redirect('/')
