@@ -43,6 +43,7 @@ main {
             display: flex;
             justify-content: space-between;
             padding: 20px;
+            gap: 5px;
             border-radius: 10px;
             margin-bottom: 20px;
             border: 2px solid $primary-blue;
@@ -52,6 +53,11 @@ main {
                 border: none;
                 padding: 0;
                 border-radius: 5px;
+
+                &:hover {
+                    color: $primary-blue;
+                    transform: scale(1.2);
+                }
             }
         }
     }

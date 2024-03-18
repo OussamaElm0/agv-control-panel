@@ -89,14 +89,12 @@ def sendCommand(request):
     else :
         return HttpResponse('Not allowed')
    
-def confirmCommande(request):
-    if request.method == 'POST':
-        commandeId = request.POST.get('commandeId')
-        # Update the status in the database using the agv_id
-        # Example:
-        commande = Commande.objects.get(id=commandeId)
-        commande.confirmed = True
-        # agv.save()
-        return JsonResponse({'status': 'success'})
-    else:
-        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+@require_POST   
+def update_commande(request, id):
+    method = request.POST.get('method')
+    if method == "PUT":
+        commande = Commande.objects.get(pk=id)
+        commande.confirmed =True
+        commande.save()
+        return redirect('/')
+    return HttpResponse('no')

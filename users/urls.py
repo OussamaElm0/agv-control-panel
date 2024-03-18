@@ -6,5 +6,6 @@ urlpatterns = [
     path('dashboard', adminIndex, name='adminIndex'),
     path('admin/logout', adminLogout, name="adminLogout"),
     path('',commande),
-    path('sendCommand',sendCommand, name='sendCommand')
+    path('sendCommand',sendCommand, name='sendCommand'),
+    path('update-status/<id>', update_commande, name='update_status'),
 ]

@@ -36,6 +36,7 @@ main .agvs-coming .agv {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  gap: 5px;
   border-radius: 10px;
   margin-bottom: 20px;
   border: 2px solid #0889c8;
@@ -45,6 +46,10 @@ main .agvs-coming .agv .confirm-reception {
   border: none;
   padding: 0;
   border-radius: 5px;
+}
+main .agvs-coming .agv .confirm-reception:hover {
+  color: #0889c8;
+  transform: scale(1.2);
 }
 
 /*# sourceMappingURL=send.css.map */
