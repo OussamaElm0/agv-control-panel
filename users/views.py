@@ -9,8 +9,9 @@ from blocs.models import *
 from commandes.views import sendCommand as newCommand
 from commandes.forms import CommandeForm
 from commandes.models import Commande
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse
 from getmac import get_mac_address as gma
+from django.core.paginator import Paginator
 # Create your views here.
 
 #View function to check if the user is an admin and handle the login process.
@@ -65,9 +66,12 @@ def commande(request):
     macAddress = Poste.objects.filter(mac_address=gma()).first()
     if macAddress is not None or isAuthenticated :
         agvsToBloc = Commande.objects.filter(confirmed=False, id_bloc=macAddress.bloc).order_by('-date')
+        paginator = Paginator(agvsToBloc,2)
+        page_number = request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
         context = {
             'form': form,
-            'agvsToBloc': agvsToBloc
+            'agvsToBloc': page_obj
         }
         return render(request, 'commandes/send.html',context)
     else : 
