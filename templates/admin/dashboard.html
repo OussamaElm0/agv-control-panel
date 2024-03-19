@@ -1,0 +1,10 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/dashboard/sidebar.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include 'layouts/dashboard_sidebar.html' %}
+{% endblock content %} 

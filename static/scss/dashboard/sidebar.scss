@@ -1,0 +1,39 @@
+@import "../variables";
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    z-index: 9999;
+    background: map-get($sidebar-style, bg-color);
+    color: map-get($sidebar-style, text-blue);
+    transition: all 0.3s;
+
+    .sidebar-header {
+        padding: 20px;
+        text-align: center;
+    }
+
+    ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+
+        li {
+            a {
+                padding: 10px;
+                font-size: 1.1em;
+                text-align: left;
+                display: block;
+                color: inherit;
+                text-decoration: none;
+                transition: background 0.3s;
+
+                &:hover {
+                    background: map-get($sidebar-style, text-orange);
+                }
+            }
+        }
+    }
+}
