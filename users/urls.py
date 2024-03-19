@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import *
+from .views import checkIfAdmin, dashboard, adminLogout, commande, sendCommand, updateCommande
 
 urlpatterns = [
     path('admin/login', checkIfAdmin, name='loginForm'),
-    path('dashboard', adminIndex, name='adminIndex'),
+    path('dashboard', dashboard, name='adminIndex'),
     path('admin/logout', adminLogout, name="adminLogout"),
-    path('',commande),
+    path('',commande, name="home"),
     path('sendCommand',sendCommand, name='sendCommand'),
-    path('update-status/<id>', update_commande, name='update_status'),
+    path('update-status/<id>', updateCommande, name='update_status'),
 ]

@@ -1,0 +1,10 @@
+
+qpython:S1542"RRename function "checkIfAdmin" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÁÊÍÉ8ëš½±å1
+upython:S1542:"QRename function "adminLogout" to match the regular expression ^[a-z_][a-z0-9_]*$.(¥æ•Ôşÿÿÿÿ8Œú¹±å1
+~python:S117D"[Rename this local variable "agvsToBloc" to match the regular expression ^[_a-z][a-z0-9_]*$.(–Õ›ıÿÿÿÿ8Œú¹±å1
+ƒpython:S117A"`Rename this local variable "isAuthenticated" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â»¢¤ıÿÿÿÿ8Œú¹±å1
+~python:S117B"[Rename this local variable "macAddress" to match the regular expression ^[_a-z][a-z0-9_]*$.(«¸Ùıÿÿÿÿ8ú¹±å1
+ƒpython:S117R"`Rename this local variable "isAuthenticated" to match the regular expression ^[_a-z][a-z0-9_]*$.(Â»¢¤ıÿÿÿÿ8ú¹±å1
+~python:S117S"[Rename this local variable "macAddress" to match the regular expression ^[_a-z][a-z0-9_]*$.(«¸Ùıÿÿÿÿ8ú¹±å1
+opython:S1542Q"QRename function "sendCommand" to match the regular expression ^[a-z_][a-z0-9_]*$.(ıãê`8ú¹±å1
+spython:S1542a"TRename function "updateCommande" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÿäı8Üà±å1
