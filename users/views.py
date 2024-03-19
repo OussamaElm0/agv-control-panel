@@ -43,7 +43,7 @@ def checkIfAdmin(request):
 
 # Renders the admin home page if the user is authenticated, otherwise redirects to the login form.
 @require_GET
-def adminIndex(request):
+def dashboard(request):
     if request.user.is_authenticated:
         context = {}
         context['agvs'] =  Agv.objects.all().count()
@@ -94,7 +94,7 @@ def sendCommand(request):
         return HttpResponse('Not allowed')
 
 @require_POST
-def update_commande(request, id):
+def updateCommande(request, id):
     method = request.POST.get('method')
     if method == "PUT":
         commande = Commande.objects.get(pk=id)

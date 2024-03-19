@@ -1,6 +1,10 @@
 {% extends "layouts/app.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/dashboard/sidebar.css' %}">
+{% endblock %}
 
 {% block content %}
-    {{ agvs }} 
-    <a href='{% url "adminLogout" %}'>Logout</a>
+    {% include 'layouts/dashboard_sidebar.html' %}
 {% endblock content %} 
