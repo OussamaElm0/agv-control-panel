@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import *
-from .forms import *
+from .models import Poste
+from .forms import AdminLoginForm
 from django.contrib.auth import authenticate, login, logout
-from django.views.decorators.http import *
+from django.views.decorators.http import require_GET, require_POST
 from django.contrib.auth.decorators import login_required
-from agv.models import *
-from blocs.models import *
+from agv.models import Agv
+from blocs.models import Bloc
 from commandes.views import sendCommand as newCommand
 from commandes.forms import CommandeForm
 from commandes.models import Commande
@@ -18,7 +18,7 @@ from django.core.paginator import Paginator
 def checkIfAdmin(request):
     if request.method == 'POST':
         form = AdminLoginForm(request.POST)
-        if form.is_valid: 
+        if form.is_valid:
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(request,username=username, password=password)
@@ -52,7 +52,7 @@ def adminIndex(request):
         return render(request, 'admin/home.html', context)
     else:
         return redirect('loginForm')
-    
+
 # Logout the admin from his account
 @login_required
 def adminLogout(request):
@@ -66,7 +66,7 @@ def commande(request):
     macAddress = Poste.objects.filter(mac_address=gma()).first()
     if macAddress is not None or isAuthenticated :
         agvsToBloc = Commande.objects.filter(confirmed=False, id_bloc=macAddress.bloc).order_by('-date')
-        paginator = Paginator(agvsToBloc,2)
+        paginator = Paginator(agvsToBloc,5)
         page_number = request.GET.get("page")
         page_obj = paginator.get_page(page_number)
         context = {
@@ -74,7 +74,7 @@ def commande(request):
             'agvsToBloc': page_obj
         }
         return render(request, 'commandes/send.html',context)
-    else : 
+    else :
         return render(request,'http_errors/401.html')
 
 @require_POST
@@ -86,14 +86,14 @@ def sendCommand(request):
             agv = request.POST.get('id_agv')
             bloc = request.POST.get('id_bloc')
             newCommand(agv, bloc)
-            return HttpResponse('Agv sent')
+            return redirect('/')
         except Exception as e:
             print(e)
             return HttpResponse(e)
     else :
         return HttpResponse('Not allowed')
-   
-@require_POST   
+
+@require_POST
 def update_commande(request, id):
     method = request.POST.get('method')
     if method == "PUT":
