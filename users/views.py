@@ -65,7 +65,7 @@ def commande(request):
     isAuthenticated = request.user.is_authenticated
     macAddress = Poste.objects.filter(mac_address=gma()).first()
     if macAddress is not None or isAuthenticated :
-        agvsToBloc = Commande.objects.filter(confirmed=False, id_bloc=macAddress.bloc).order_by('-date')
+        agvsToBloc = Commande.objects.filter(confirmed=False, id_bloc=macAddress.bloc).order_by('-id')
         paginator = Paginator(agvsToBloc,5)
         page_number = request.GET.get("page")
         page_obj = paginator.get_page(page_number)
