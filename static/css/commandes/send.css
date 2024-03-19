@@ -39,7 +39,7 @@ main .agvs-coming .agv {
   gap: 5px;
   border-radius: 10px;
   margin-bottom: 20px;
-  border: 2px solid #0889c8;
+  border: 2px solid #0188C7;
 }
 main .agvs-coming .agv .confirm-reception {
   color: #F18E30;
@@ -48,7 +48,7 @@ main .agvs-coming .agv .confirm-reception {
   border-radius: 5px;
 }
 main .agvs-coming .agv .confirm-reception:hover {
-  color: #0889c8;
+  color: #0188C7;
   transform: scale(1.2);
 }
 

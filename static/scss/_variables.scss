@@ -1,2 +1,13 @@
-$primary-orange: #F18E30;
-$primary-blue: #0889c8;
+$colors: (
+    orange: #F18E30,
+    blue: #0188C7,
+    gray: #D9D9D9,
+);
+
+$sidebar-style: (
+    font: ('Open Sans Bold', sans-serif),
+    text-orange: map-get($colors, orange),
+    text-blue: map-get($colors, blue),
+    bg-color: map-get($colors, gray),
+    opacity: 0.3,
+);

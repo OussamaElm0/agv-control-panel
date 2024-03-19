@@ -22,7 +22,7 @@ main {
 
             button {
                 width: 100%;
-                background-color: $primary-orange !important;
+                background-color: map-get($colors, orange ) !important;
                 color: white !important;
                 border: none !important;
             }
@@ -46,16 +46,16 @@ main {
             gap: 5px;
             border-radius: 10px;
             margin-bottom: 20px;
-            border: 2px solid $primary-blue;
+            border: 2px solid map-get($colors, blue);
 
             .confirm-reception {
-                color: $primary-orange;
+                color: map-get($colors, orange);
                 border: none;
                 padding: 0;
                 border-radius: 5px;
 
                 &:hover {
-                    color: $primary-blue;
+                    color: map-get($colors, blue);
                     transform: scale(1.2);
                 }
             }
