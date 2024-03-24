@@ -49,7 +49,7 @@ def dashboard(request):
         context['agvs'] =  Agv.objects.all().count()
         context['blocs'] = Bloc.objects.all().count()
         context['postes'] = Poste.objects.all().count()
-        return render(request, 'admin/home.html', context)
+        return render(request, 'admin/dashboard.html', context)
     else:
         return redirect('loginForm')
 

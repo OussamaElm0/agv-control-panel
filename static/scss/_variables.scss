@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 $colors: (
     orange: #F18E30,
     blue: #0188C7,
@@ -5,9 +7,8 @@ $colors: (
 );
 
 $sidebar-style: (
-    font: ('Open Sans Bold', sans-serif),
+    font: ("Kanit", sans-serif),
     text-orange: map-get($colors, orange),
     text-blue: map-get($colors, blue),
-    bg-color: map-get($colors, gray),
-    opacity: 0.3,
+    bg-color: rgba(map-get($colors, gray),0.3)
 );
