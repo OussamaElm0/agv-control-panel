@@ -43,4 +43,19 @@
             }
         }
     }
+
+    .sidebar-footer {
+        position: absolute;
+        bottom: 0;
+        left:25%;
+
+        ul.components {
+            border: none;
+
+            li:hover {
+                transform: scale(1.1);
+                background: none;
+            }
+        }
+    }
 }

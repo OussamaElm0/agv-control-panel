@@ -39,5 +39,17 @@
 #sidebar ul.components li:hover {
   background-color: #FFB366;
 }
+#sidebar .sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+}
+#sidebar .sidebar-footer ul.components {
+  border: none;
+}
+#sidebar .sidebar-footer ul.components li:hover {
+  transform: scale(1.1);
+  background: none;
+}
 
 /*# sourceMappingURL=sidebar.css.map */

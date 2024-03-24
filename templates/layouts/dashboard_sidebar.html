@@ -1,22 +1,36 @@
 {% load static %} 
 
 <nav id="sidebar">
-        <div class="sidebar-header">
-            <img src="{% static 'images/sinoftec_logo.png' %}">
-        </div>
+    <div class="sidebar-header">
+        <img src="{% static 'images/sinoftec_logo.png' %}" alt="Sinoftec">
+    </div>
 
+    <ul class="list-unstyled components">
+        <li>
+            <img src="{% static 'images/icons/agv-icon.png' %}" alt="Agv">
+            <a href="#">Agvs</a>
+        </li>
+        <li>
+            <img src="{% static 'images/icons/bloc-icon.png' %}" alt="Bloc">
+            <a href="#">Blocs</a>
+        </li>
+        <li>
+            <img src="{% static 'images/icons/poste-icon.png' %}" alt="Poste">
+            <a href="#">Postes</a>
+        </li>
+    </ul>
+
+    <div class="sidebar-footer">
         <ul class="list-unstyled components">
             <li>
-                <img src="{% static 'images/icons/agv-icon.png' %}">
-                <a href="#">Agvs</a>
+                <img src="{% static 'images/icons/user.png' %}" alt="User">
+                <h6>{{ user.username|upper }}</h6>
             </li>
             <li>
-                <img src="{% static 'images/icons/bloc-icon.png' %}">
-                <a href="#">Blocs</a>
-            </li>
-            <li>
-                <img src="{% static 'images/icons/poste-icon.png' %}">
-                <a href="#">Postes</a>
+                <img src="{% static 'images/icons/logout.png' %}" alt="Logout">
+                <a href="{% url 'adminLogout' %}">Logout</a>
             </li>
         </ul>
-    </nav>
+    </div>
+
+</nav>
