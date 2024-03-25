@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px;
+  width: 200px;
   z-index: 9999;
   background: rgba(217, 217, 217, 0.3);
   color: #0188C7;
@@ -37,7 +37,8 @@
   font-family: "Kanit", sans-serif;
 }
 #sidebar ul.components li:hover {
-  background-color: #FFB366;
+  background-color: #ffffff;
+  border-radius: 0 -10px -10px 0;
 }
 #sidebar .sidebar-footer {
   position: absolute;
