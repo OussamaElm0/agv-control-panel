@@ -13,6 +13,8 @@ from django.http import HttpResponse
 from getmac import get_mac_address as gma
 from django.core.paginator import Paginator
 from django.db.models import Count
+from django.utils import timezone
+from datetime import timedelta
 # Create your views here.
 
 #View function to check if the user is an admin and handle the login process.
@@ -46,13 +48,23 @@ def checkIfAdmin(request):
 @require_GET
 def dashboard(request):
     if request.user.is_authenticated:
+        # Calculate the start and end dates for the last week
+        end_date = timezone.now()
+        start_date = end_date - timedelta(days=7)
+
+        # Filter Commande objects for the last week
+        commandes_last_week = Commande.objects.filter(date__gte=start_date, date__lte=end_date)
+
+        # Group Commande objects by date and count the number of Commandes for each date
+        commands_per_day_last_week = commandes_last_week.values('date').annotate(total_commandes=Count('id'))
+
         context = {
             'total_agvs': Agv.objects.all().count(),
             'total_blocs': Bloc.objects.all().count(),
             'total_postes': Poste.objects.all().count(),
-            'commands_per_day': Commande.objects.values('date').annotate(total_commandes=Count('id'))
+            'commands_per_day_last_week': list(commands_per_day_last_week)
         }
-        print(Commande.objects.values('date').annotate(total_commandes=Count('id')))
+        print(type  (commands_per_day_last_week))
         return render(request, 'admin/dashboard.html', context)
     else:
         return redirect('loginForm')

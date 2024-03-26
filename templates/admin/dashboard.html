@@ -12,12 +12,13 @@
     <aside class="aside">
         <h1 class="dashboard-title">Dashboard</h1>
         <canvas id="totals-chart" width="400" height="200"></canvas>
+        <canvas id="commandsChart" width="400" height="200"></canvas>
     </aside>
     <script>
        window.totalAGVs = {{ total_agvs }};
        window.totalBLOCs = {{ total_blocs }};
        window.totalPOSTEs = {{ total_postes }};
     </script>
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'js/dashboard/totals.js' %}"></script>
 {% endblock content %}
