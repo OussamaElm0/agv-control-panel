@@ -12,6 +12,7 @@ from commandes.models import Commande
 from django.http import HttpResponse
 from getmac import get_mac_address as gma
 from django.core.paginator import Paginator
+from django.db.models import Count
 # Create your views here.
 
 #View function to check if the user is an admin and handle the login process.
@@ -45,12 +46,13 @@ def checkIfAdmin(request):
 @require_GET
 def dashboard(request):
     if request.user.is_authenticated:
-        commands = Commande.objects.all()
         context = {
             'total_agvs': Agv.objects.all().count(),
             'total_blocs': Bloc.objects.all().count(),
             'total_postes': Poste.objects.all().count(),
+            'commands_per_day': Commande.objects.values('date').annotate(total_commandes=Count('id'))
         }
+        print(Commande.objects.values('date').annotate(total_commandes=Count('id')))
         return render(request, 'admin/dashboard.html', context)
     else:
         return redirect('loginForm')
