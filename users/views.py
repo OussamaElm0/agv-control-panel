@@ -45,10 +45,12 @@ def checkIfAdmin(request):
 @require_GET
 def dashboard(request):
     if request.user.is_authenticated:
-        context = {}
-        context['agvs'] =  Agv.objects.all().count()
-        context['blocs'] = Bloc.objects.all().count()
-        context['postes'] = Poste.objects.all().count()
+        commands = Commande.objects.all()
+        context = {
+            'total_agvs': Agv.objects.all().count(),
+            'total_blocs': Bloc.objects.all().count(),
+            'total_postes': Poste.objects.all().count(),
+        }
         return render(request, 'admin/dashboard.html', context)
     else:
         return redirect('loginForm')

@@ -1,0 +1,22 @@
+@import "../variables";
+
+.aside {
+  position: absolute;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: 100%;
+  padding-left: 1%;
+
+  .dashboard-title {
+    color: map-get($colors, orange);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  #totals-chart {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}

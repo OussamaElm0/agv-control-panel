@@ -38,7 +38,6 @@
 }
 #sidebar ul.components li:hover {
   background-color: #ffffff;
-  border-radius: 0 -10px -10px 0;
 }
 #sidebar .sidebar-footer {
   position: absolute;
