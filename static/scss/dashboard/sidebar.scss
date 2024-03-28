@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 250px;
+    width: 200px;
     z-index: 9999;
     background: map-get($sidebar-style, bg-color);
     color: map-get($sidebar-style, text-blue);
@@ -19,20 +19,42 @@
     ul.components {
         padding: 20px 0;
         border-bottom: 1px solid #47748b;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
 
         li {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
             a {
                 padding: 10px;
                 font-size: 1.1em;
-                text-align: left;
+                text-align: center;
                 display: block;
                 color: inherit;
                 text-decoration: none;
                 transition: background 0.3s;
+                font-family: map-get($sidebar-style, font);
+            }
+            &:hover {
+                background-color: #ffffff;
+            }
+        }
+    }
 
-                &:hover {
-                    background: map-get($sidebar-style, text-orange);
-                }
+    .sidebar-footer {
+        position: absolute;
+        bottom: 0;
+        left:25%;
+
+        ul.components {
+            border: none;
+
+            li:hover {
+                transform: scale(1.1);
+                background: none;
             }
         }
     }
