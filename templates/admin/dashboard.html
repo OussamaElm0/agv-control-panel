@@ -12,8 +12,11 @@
     <aside class="aside">
         <h1 class="dashboard-title">Dashboard</h1>
         <canvas id="totals-chart" width="400" height="200"></canvas>
-        <canvas id="commandsChart" width="400" height="200"></canvas>
+        {% if plot_filename %}
+            <img src="{{ plot_filename }}" alt="Plot">
+        {% endif %}
     </aside>
+
     <script>
        window.totalAGVs = {{ total_agvs }};
        window.totalBLOCs = {{ total_blocs }};

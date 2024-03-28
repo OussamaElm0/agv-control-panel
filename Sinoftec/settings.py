@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'blocs.apps.BlocsConfig',
     'commandes.apps.CommandesConfig',
     'users.apps.UsersConfig',
+    'matplot',
 ]
 
 MIDDLEWARE = [
