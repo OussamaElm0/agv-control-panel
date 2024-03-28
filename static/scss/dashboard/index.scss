@@ -19,4 +19,18 @@
     border-radius: 10px;
     padding: 10px;
   }
+
+  .charts {
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+
+    .commandsLast7 {
+      width: calc(100% - 450px);
+      height: 400px;
+      margin-left: 40px;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+  }
 }

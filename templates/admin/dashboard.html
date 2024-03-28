@@ -11,10 +11,12 @@
     {% include 'layouts/dashboard_sidebar.html' %}
     <aside class="aside">
         <h1 class="dashboard-title">Dashboard</h1>
-        <canvas id="totals-chart" width="400" height="200"></canvas>
-        {% if plot_filename %}
-            <img src="{{ plot_filename }}" alt="Plot">
-        {% endif %}
+       <article class="charts">
+            <canvas id="totals-chart" width="400" height="200"></canvas>
+            {% if commands_last_week %}
+                <img src="{{ commands_last_week }}" alt="Commands last week" class="img-fluid commandsLast7">
+            {% endif %}
+       </article>
     </aside>
 
     <script>
