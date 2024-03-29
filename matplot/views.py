@@ -11,7 +11,7 @@ def commands_last_week():
     try:
         # Calculate the start and end dates for the last week
         end_date = timezone.now()
-        start_date = end_date - timedelta(days=7)
+        start_date = end_date - timedelta(days=14)
 
         # Filter Commande objects for the last week
         commandes_last_week = Commande.objects.filter(date__gte=start_date, date__lte=end_date)
