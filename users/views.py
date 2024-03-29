@@ -12,7 +12,7 @@ from commandes.models import Commande
 from django.http import HttpResponse
 from getmac import get_mac_address as gma
 from django.core.paginator import Paginator
-from matplot.views import commands_last_week
+from matplot.views import commands_last_week, most_agv_sent
 
 
 # Create your views here.
@@ -54,6 +54,7 @@ def dashboard(request):
             'total_blocs': Bloc.objects.all().count(),
             'total_postes': Poste.objects.all().count(),
             'commands_last_week': commands_last_week(),
+            'most_agv_sent': most_agv_sent(),
         }
         return render(request, 'admin/dashboard.html', context)
     else:
