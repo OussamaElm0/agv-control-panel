@@ -16,15 +16,23 @@
             {% if commands_last_week %}
                 <img src="{{ commands_last_week }}" alt="Commands last week" class="img-fluid commandsLast7">
             {% endif %}
-        {{ most_agv_sent }}
+            <canvas id="most-agvs-used" width="400" height="200" ></canvas>
        </article>
     </aside>
 
     <script>
-       window.totalAGVs = {{ total_agvs }};
-       window.totalBLOCs = {{ total_blocs }};
-       window.totalPOSTEs = {{ total_postes }};
+        window.mostAgvsUsed = {{ agvs_name|safe }}.map((agv, i) => {
+            return {
+                'name': agv,
+                'usage': {{ agvs_usage }}[i],
+            }
+        })
+
+        window.totalAGVs = {{ total_agvs }};
+        window.totalBLOCs = {{ total_blocs }};
+        window.totalPOSTEs = {{ total_postes }};
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'js/dashboard/totals.js' %}"></script>
+    <script src="{% static 'js/dashboard/most_agvs_used.js' %}"></script>
 {% endblock content %}

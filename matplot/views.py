@@ -1,5 +1,4 @@
 import os
-import numpy as np
 import matplotlib.pyplot as plt
 from django.conf import settings
 from django.utils import timezone
@@ -48,16 +47,3 @@ def commands_last_week():
         print("Error occurred:", e)
         return None
 
-
-def most_agv_sent():
-    try:
-        most_used_agv = Commande.objects.values('id_agv').annotate(time=Count('id_agv')).order_by('-time').first()
-
-        if most_used_agv:
-            return most_used_agv
-        else:
-            return None
-
-    except Exception as e:
-        print("Error occurred:", e)
-        return None

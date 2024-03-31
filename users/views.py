@@ -12,7 +12,10 @@ from commandes.models import Commande
 from django.http import HttpResponse
 from getmac import get_mac_address as gma
 from django.core.paginator import Paginator
-from matplot.views import commands_last_week, most_agv_sent
+from matplot.views import commands_last_week
+from django.db.models import Count
+from datetime import timedelta
+from django.utils import timezone
 
 
 # Create your views here.
@@ -48,13 +51,28 @@ def checkIfAdmin(request):
 # Renders the admin home page if the user is authenticated, otherwise redirects to the login form.
 @require_GET
 def dashboard(request):
+    global agvs_name, agvs_usage
     if request.user.is_authenticated:
+        start_date = timezone.now() - timedelta(days=7)
+
+        # Filter commands sent in the last 7 days and get the most used AGV for each day
+        most_agv_used_last_week = Commande.objects.filter(date__gte=start_date) \
+            .values('id_agv__nom') \
+            .annotate(usage_count=Count('id_agv__nom')) \
+            .order_by('-usage_count')
+
+        if most_agv_used_last_week :
+            agvs_name = [entry['id_agv__nom'] for entry in most_agv_used_last_week]
+            agvs_usage = [entry['usage_count'] for entry in most_agv_used_last_week]
+            print(agvs_name)
+
         context = {
             'total_agvs': Agv.objects.all().count(),
             'total_blocs': Bloc.objects.all().count(),
             'total_postes': Poste.objects.all().count(),
             'commands_last_week': commands_last_week(),
-            'most_agv_sent': most_agv_sent(),
+            'agvs_name': agvs_name,
+            'agvs_usage': agvs_usage,
         }
         return render(request, 'admin/dashboard.html', context)
     else:
