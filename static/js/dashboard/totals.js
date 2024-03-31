@@ -33,7 +33,7 @@ var data = {
 
 // Use Chart.js to create a bar chart
 var ctx = document.getElementById("totals-chart").getContext("2d");
-var agvChart = new Chart(ctx, {
+var totalsChart = new Chart(ctx, {
   type: "bar",
   data: data,
   options: {
