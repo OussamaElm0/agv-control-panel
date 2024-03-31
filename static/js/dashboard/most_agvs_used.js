@@ -28,7 +28,7 @@ const pieChartConfig = {
   type: 'pie',
   data: pieChartData,
   options: {
-    responsive: true,
+    responsive: false,
     plugins: {
       legend: {
         position: 'top',

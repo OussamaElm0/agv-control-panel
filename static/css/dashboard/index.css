@@ -12,15 +12,20 @@
   text-align: center;
   margin-bottom: 30px;
 }
-.aside #totals-chart {
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 10px;
-}
 .aside .charts {
   display: flex;
   flex-flow: row wrap;
   box-sizing: border-box;
+}
+.aside .charts .charts-js {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.aside .charts .charts-js canvas {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
 }
 .aside .charts .commandsLast7 {
   width: calc(100% - 450px);
